@@ -1,0 +1,9 @@
+<h2><%= @memo.title %></h2>
+<p class="py-2 h4 font-weight-normal"><%= @memo.content.gsub(/\n/, '<br>') %></p>
+<div class="d-flex justify-content-center">
+  <a href="/<%= @memo.title %>/edit" class="btn btn-warning btn-lg m-3 -x-5">変更</a>
+  <form action="/<%= @memo.title %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="削除" class="btn btn-danger btn-lg m-3 px-5">
+  </form>
+</div>

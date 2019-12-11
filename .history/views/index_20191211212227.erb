@@ -1,0 +1,5 @@
+<ul class="px-5">
+  <% @memos.each do |memo| %>
+  <li class="h3 font-weight-normal my-3"><a href="<%= memo.title %>"><%= memo.title %></a></li>
+  <% end %>
+</ul>
