@@ -15,6 +15,7 @@ GEM
     parallel (1.19.1)
     parser (2.6.5.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
@@ -69,6 +70,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  pg
   redcarpet
   rubocop
   rubocop-performance

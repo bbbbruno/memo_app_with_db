@@ -13,41 +13,41 @@ get '/' do
   erb :index
 end
 
-get '/new/?' do
+get '/new' do
   @title = 'new'
   erb :new
 end
 
 post '/' do
-  data = { title: params[:title], content: params[:content], created_at: Time.now }
+  data = { title: params[:title], content: params[:content] }
   @memo = Memo.new(data)
   @memo.save
   redirect '/'
   erb :index
 end
 
-get '/:title/?' do |title|
+get '/:id' do |id|
   @title = 'show'
-  @memo = Memo.find(title)
+  @memo = Memo.find(id)
   erb :show
 end
 
-get '/:title/edit/?' do |title|
+get '/:id/edit' do |id|
   @title = 'edit'
-  @memo = Memo.find(title)
+  @memo = Memo.find(id)
   erb :edit
 end
 
-put '/:title/?' do |title|
-  @memo = Memo.find(title)
+put '/:id' do |id|
+  @memo = Memo.find(id)
   @memo.title = params[:title]
   @memo.content = params[:content]
-  @memo.save
+  @memo.update
   erb :show
 end
 
-delete '/:title/?' do |title|
-  Memo.destroy(title)
+delete '/:id' do |id|
+  Memo.destroy(id)
   redirect '/'
   erb :index
 end
