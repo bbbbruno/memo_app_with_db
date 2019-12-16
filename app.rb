@@ -5,8 +5,6 @@ require 'sinatra/reloader'
 
 require_relative 'models/memo'
 
-enable :method_override
-
 get '/' do
   @title = 'top'
   @memos = Memo.all

@@ -3,7 +3,7 @@
 require 'pg'
 
 class Memo
-  SETTINGS = { host: 'localhost', user: 'postgres', dbname: 'postgres', port: '5432' }
+  SETTINGS = { host: 'localhost', user: 'bruno', dbname: 'postgres', port: '5432' }
 
   attr_accessor :id, :title, :content, :created_at, :updated_at
 
@@ -30,8 +30,12 @@ class Memo
     end
 
     def all
-      exec('SELECT * FROM memos;').each.with_object([]) do |h, a|
-        a << new(symbolize_keys(h))
+      if results = exec('SELECT * FROM memos;')
+        results.each.with_object([]) do |h, a|
+          a << new(symbolize_keys(h))
+        end
+      else
+        []
       end
     end
 
