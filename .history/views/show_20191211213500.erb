@@ -1,9 +1,0 @@
-<h2><%= @memo.title %></h2>
-<p class="py-2 h4 font-weight-normal"><%= @memo.content.gsub(/\n/, '<br>') %></p>
-<div class="btns">
-  <form action="/<%= @memo.title %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="削除">
-  </form>
-  <a href="/<%= @memo.title %>/edit">変更</a>
-</div>

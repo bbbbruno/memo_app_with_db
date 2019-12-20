@@ -1,6 +1,0 @@
-<h2><%= @memo.title %></h2>
-<p><%= @memo.content.gsub(/\n/, '<br>') %></p>
-<form action="/<%= @memo.title %>" metho="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="削除">
-</form>
